@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Triz - produtos</title>
+    <title>@yield('title')</title>
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
     <header>
-        <h1><a href="#">Triz</a></h1>
+        <h1><a href="{{ route('produtos.index') }}">Triz</a></h1>
         <nav>
             <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="#">Upload</a></li>
+                <li><a href="{{ route('produtos.index') }}">Home</a></li>
+                <li><a href="{{ route('produtos.create') }}">Upload</a></li>
                 <li><a href="#">Dashboard</a></li>
             </ul>
         </nav>
