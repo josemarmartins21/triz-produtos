@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 
-@section('title', 'Cadastrar produtos')
+@section('title', 'Triz - Cadastrar produto')
 
 @section('content')
     <section id="create">
