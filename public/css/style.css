@@ -246,6 +246,39 @@ input[type=submit]:active {
     background-color: var(--secundaria);
 }
 
+/* show */
+
+section#show {
+    padding: 0px 20px;
+}
+
+#show .img {
+    width: 600px;
+    margin: auto;
+}
+
+.img img {
+    border-radius: 50%;
+}
+
+#descricao {
+    background-color: #00000057;
+    height: 50vh;
+}
+
+#descricao h2 {
+    font-size: 3.1em;
+    font-weight: 300;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+#descricao p {
+    padding: 10px;
+    text-indent: 30px;
+}
+
 footer {
     color: white;
    /*  position: absolute;

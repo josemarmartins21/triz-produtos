@@ -24,7 +24,8 @@ class UserStoreRequest extends FormRequest
         return [
             'nome' => 'required',
             'preco' => 'required',
-            'descricao' => 'required'
+            'descricao' => 'required',
+            'imagem' => 'required'
         ];
     }
 }

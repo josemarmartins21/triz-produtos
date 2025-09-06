@@ -23,6 +23,9 @@
             <div class="form-group">
                 <input type="file" name="imagem" id="imagem" accept=".jpg" >
             </div>
+            <div class="form-group">
+                <input type="file" name="imagem_2" id="imagem" accept=".jpg" >
+            </div>
             <input type="submit" value="Enviar">
         </form>
     </section>

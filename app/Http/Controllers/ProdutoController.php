@@ -46,6 +46,7 @@ class ProdutoController extends Controller
     public function store(UserStoreRequest $request)
     {
         $request->validated();
+        $imagem = ['imagem', 'imagem_2'];
 
         $produto = new Produto();
 
@@ -53,15 +54,19 @@ class ProdutoController extends Controller
         $produto->preco = $request->preco;
         $produto->descricao = $request->descricao;
         
-        $img = $this->validarImagem($request, $produto);
+        for ($i=0; $i < 2; $i++) { 
+            $img = $this->validarImagem($request, $imagem[$i]);
 
-        if (is_string($img)){
-          $produto->imagem = $img;
+            if ($img && $i == 0) {
+                $produto->imagem = $img;
+
+            } else if ($img && $i > 0) {
+                $produto->imagem_2 = $img;
+
+            }
         }
-        
-           
     
-        $produto->save();
+        $produto->save(); /* Salva os dados no banco! */
 
         return redirect('/');
 
@@ -114,10 +119,10 @@ class ProdutoController extends Controller
         //
     }
 
-    public function validarImagem(UserStoreRequest $request, Produto $produto) : bool | string
+    public function validarImagem(UserStoreRequest $request, $imagem) : bool | string
     {
-        if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
-            $file = $request->imagem;
+        if ($request->hasFile($imagem) && $request->file($imagem)->isValid()) {
+            $file = $request->file($imagem);
 
             $extension = $file->extension();
 

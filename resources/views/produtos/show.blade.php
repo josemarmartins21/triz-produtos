@@ -3,6 +3,26 @@
 @section('title', 'Home')
 
 @section('content')
-<h1>{{ $produto->nome }}</h1>
+<section id="show">
+    <p>Publicado em: <strong>{{ $produto->created_at->format('d/m/Y') }}</strong> </p>
 
+    <div class="img">
+        <img src="/img/uploads/{{ $produto->imagem }}" alt="{{ $produto->nome }}">
+        
+    </div>
+
+    
+    <div id="descricao">
+        <h2>{{ $produto->nome }}</h2>
+
+        <p>{{ $produto->descricao }}</p>
+    </div>
+
+    <div class="optional-img">
+        @if ($produto->imagem_2)
+            <img src="/img/uploads/{{ $produto->imagem_2 }}" alt="{{ $produto->nome }}">
+            
+        @endif
+    </div>
+</section>
 @endsection
