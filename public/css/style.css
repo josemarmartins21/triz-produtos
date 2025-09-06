@@ -87,8 +87,8 @@ section#home {
 
 
 div#hero {
-    height: 40vh;
-    background: black url(../img/lasanha.jpg) no-repeat center center fixed;
+    height: 60vh;
+    background: black url(../img/banner.jpg) no-repeat center center fixed;
     background-size: cover;
 }
 
@@ -165,11 +165,25 @@ div#hero {
 }
 
 span {
-    display: block;
-    text-align: right;
+    display: flex;
+    justify-content: space-between;
     font-weight: 400;
-    font-size: 1.4em;
     max-height: 29px;
+}
+
+span strong {
+    font-size: 1.4em;
+    
+}
+
+span > a {
+    color: white;
+    font-weight: bold;
+    background-color: var(--principal);
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 1em;
+    text-decoration: none;
 }
 
 /* Create */

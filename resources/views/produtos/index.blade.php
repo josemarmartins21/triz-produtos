@@ -17,12 +17,12 @@
         </div>  
         
         <div id="produtos">
-            
             @if (count($produtos) == 0 && $busca)
                 <div id="container">
                     <h1>
                         Nenhum resultado para: {{ $busca }} <a href="{{ route('produtos.create') }}">Adicone um produto</a><h1>
-                </div>   
+                </div> 
+
             @elseif (count($produtos) == 0)      
                 <div id="container">
                     <h1>Nada adicionado ainda <a href="{{ route('produtos.create') }}">Adicone um produto</a></h1>
@@ -31,22 +31,22 @@
             @else
                 <h2>Produtos</h2>
                 <div id="container">
-                @foreach ($produtos as $produto)
-                        <div class="card">
-                            <img src="/img/uploads/{{ $produto->imagem }}" alt="{{ $produto->nome }}">
-                            <div class="details">
-                                <h3>{{ ucwords($produto->nome) }}</h3>
-                                <p>
-                                {{$produto->descricao}}
-                                </p>
-                                <span> {{ number_format($produto->preco, 2, ',', '.') }} </span>
+                    @foreach ($produtos as $produto)
+                            <div class="card">
+                                <img src="/img/uploads/{{ $produto->imagem }}" alt="{{ $produto->nome }}">
+                                <div class="details">
+                                    <h3>{{ ucwords($produto->nome) }}</h3>
+                                    <p>
+                                    {{$produto->descricao}}
+                                    </p>
+                                    <span> <a href="/produtos/{{ $produto->id }}">Ver mais</a> <strong>{{ number_format($produto->preco, 2, ',', '.') }}</strong> </span>
+                                </div>
                             </div>
-                        </div>
-                @endforeach
-                    </div> 
+
+                    @endforeach
+                </div> 
 
             @endif
         </div>
-            
     </section>        
 @endsection

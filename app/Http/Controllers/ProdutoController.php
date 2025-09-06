@@ -6,6 +6,7 @@ use App\Http\Requests\ProdutoStoreRequest;
 use App\Http\Requests\UserStoreRequest;
 use App\Models\Produto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProdutoController extends Controller
 {
@@ -23,7 +24,7 @@ class ProdutoController extends Controller
             ])->get();
             
         } else {
-            $produtos = Produto::all();
+            $produtos = DB::select("SELECT * FROM produtos ORDER BY id desc ");
 
         }
       
@@ -84,7 +85,9 @@ class ProdutoController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $produto = Produto::findOrFail($id);
+
+        return view('produtos.show', ['produto' => $produto]);
     }
 
     /**
