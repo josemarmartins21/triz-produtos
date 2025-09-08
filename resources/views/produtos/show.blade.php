@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'Home')
+@section('title', $produto->nome)
 
 @section('content')
 <section id="show">
@@ -13,7 +13,7 @@
 
     
     <div id="descricao">
-        <h2>{{ $produto->nome }}</h2>
+        <h2> {{ ucwords($produto->nome) }} </h2>
 
         <p>{{ $produto->descricao }}</p>
     </div>

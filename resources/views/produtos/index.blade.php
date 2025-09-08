@@ -19,8 +19,7 @@
         <div id="produtos">
             @if (count($produtos) == 0 && $busca)
                 <div id="container">
-                    <h1>
-                        Nenhum resultado para: {{ $busca }} <a href="{{ route('produtos.create') }}">Adicone um produto</a><h1>
+                    <h1>Nenhum resultado para: {{ $busca }}<h1>
                 </div> 
 
             @elseif (count($produtos) == 0)      
@@ -35,11 +34,13 @@
                             <div class="card">
                                 <img src="/img/uploads/{{ $produto->imagem }}" alt="{{ $produto->nome }}">
                                 <div class="details">
-                                    <h3>{{ ucwords($produto->nome) }}</h3>
+                                    <h1>{{ ucwords($produto->nome) }}</h1>
                                     <p>
-                                    {{$produto->descricao}}
+                                {{--     {{$produto->descricao}} --}}
                                     </p>
-                                    <span> <a href="/produtos/{{ $produto->id }}">Ver mais</a> <strong>{{ number_format($produto->preco, 2, ',', '.') }}</strong> </span>
+                                    <span> <div>{{ number_format($produto->preco, 2, ',', '.') }} Kz</div>
+                                        <a href="/produtos/{{ $produto->id }}">Ver mais</a>  
+                                    </span>
                                 </div>
                             </div>
 

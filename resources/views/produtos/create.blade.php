@@ -17,14 +17,14 @@
             </div>
 
             <div class="form-group">
-                <textarea name="descricao" id="descricao" cols="50" rows="10" placeholder="Descrição do produto"></textarea>
+                <textarea name="descricao" id="sobre" cols="50" rows="10" placeholder="Descrição do produto" minlength="200"></textarea>
             </div>
 
             <div class="form-group">
-                <input type="file" name="imagem" id="imagem" accept=".jpg" >
+                <input type="file" name="imagem" id="imagem" >
             </div>
             <div class="form-group">
-                <input type="file" name="imagem_2" id="imagem" accept=".jpg" >
+                <input type="file" name="imagem_2" id="imagem">
             </div>
             <input type="submit" value="Enviar">
         </form>

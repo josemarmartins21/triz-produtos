@@ -119,6 +119,11 @@ class ProdutoController extends Controller
         //
     }
 
+    public function dashboard()
+    {
+        return view('produtos.dashboard');
+    }
+
     public function validarImagem(UserStoreRequest $request, $imagem) : bool | string
     {
         if ($request->hasFile($imagem) && $request->file($imagem)->isValid()) {

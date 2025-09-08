@@ -14,7 +14,7 @@
             <ul>
                 <li><a href="{{ route('produtos.index') }}">Home</a></li>
                 <li><a href="{{ route('produtos.create') }}">Upload</a></li>
-                <li><a href="#">Dashboard</a></li>
+                <li><a href="{{ route('produtos.dashboard') }}">Dashboard</a></li>
             </ul>
         </nav>
     </header>

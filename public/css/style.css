@@ -125,7 +125,7 @@ div#hero {
 #container {
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     width: 80%;
     margin: auto;
     gap: 30px;
@@ -140,11 +140,11 @@ div#hero {
 }
 
 .card {
-    flex-basis: 35%;
+    flex-basis: 31.4%;
     border-radius: 10px;
     background-color: #fff;
     overflow: hidden;
-    height: 350px;
+    height: auto;
     box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.24);
     
 }
@@ -155,7 +155,8 @@ div#hero {
 }
 
 .details > p {
-    height: 86px;
+    height: auto;
+    margin: 8px;
 }
 
 .card img {
@@ -171,7 +172,7 @@ span {
     max-height: 29px;
 }
 
-span strong {
+span div {
     font-size: 1.4em;
     
 }
@@ -250,20 +251,23 @@ input[type=submit]:active {
 
 section#show {
     padding: 0px 20px;
+    margin-bottom: 80px;
 }
 
 #show .img {
     width: 600px;
-    margin: auto;
+    margin: 30px auto;
 }
 
 .img img {
-    border-radius: 50%;
+    border-radius: 20px;
 }
 
 #descricao {
-    background-color: #00000057;
+    background-color: black;
     height: 50vh;
+    margin-bottom: 20px;
+    color: white;
 }
 
 #descricao h2 {
@@ -275,8 +279,24 @@ section#show {
 }
 
 #descricao p {
+    font-family: 'Times New Roman', Times, serif;
     padding: 10px;
     text-indent: 30px;
+}
+
+.optional-img {
+    max-width: 80%;
+    margin: auto;
+}
+
+.optional-img img {
+    max-width: 100%;
+    display: block;
+    margin: auto;
+}
+
+#show p {
+    margin-top: 8px;
 }
 
 footer {

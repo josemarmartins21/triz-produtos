@@ -10,4 +10,6 @@ Route::get('/produtos/create', [ProdutoController::class, 'create'])->name('prod
 Route::post('/produtos', [ProdutoController::class, 'store'])->name('produtos');
 
 Route::get('/produtos/{id}', [ProdutoController::class, 'show'])->name('produtos.show');
+
+Route::get('/dashboard', [ProdutoController::class, 'dashboard'])->name('produtos.dashboard');
  
