@@ -20,13 +20,26 @@
                 <textarea name="descricao" id="sobre" cols="50" rows="10" placeholder="Descrição do produto" minlength="200"></textarea>
             </div>
 
+
             <div class="form-group">
                 <input type="file" name="imagem" id="imagem" >
             </div>
             <div class="form-group">
                 <input type="file" name="imagem_2" id="imagem">
             </div>
+            
             <input type="submit" value="Enviar">
         </form>
+             <div>
+        @if ($errors->any())
+            <ul>
+                @foreach ($errors->all() as $erro)
+                    <li>{{ $erro }}</li>
+                @endforeach
+            </ul>
+        @endif
+   
+        </div>
     </section>
 @endsection
+

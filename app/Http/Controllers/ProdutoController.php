@@ -3,17 +3,26 @@
 namespace App\Http\Controllers;
 
 use App\Exceptions\InvalidOrderException;
+use App\Http\Requests\ProdutoFormRequest;
 use App\Http\Requests\ProdutoStoreRequest;
 use App\Http\Requests\UserStoreRequest;
 use App\Models\Produto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
+
 class ProdutoController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
+    private $imagem = [];
+
+    public function __construct()
+    {
+        $this->imagem = ['imagem', 'imagem_2'];
+    }
+
     public function index()
     {
         $busca = request('search');
@@ -58,7 +67,6 @@ class ProdutoController extends Controller
     public function store(UserStoreRequest $request)
     {
         $request->validated();
-        $imagem = ['imagem', 'imagem_2'];
 
         $produto = new Produto();
 
@@ -67,7 +75,7 @@ class ProdutoController extends Controller
         $produto->descricao = $request->descricao;
         
         for ($i=0; $i < 2; $i++) { 
-            $img = $this->validarImagem($request, $imagem[$i]);
+            $img = $this->validarImagem($request, $this->imagem[$i]);
 
             if ($img && $i == 0) {
                 $produto->imagem = $img;
@@ -112,7 +120,9 @@ class ProdutoController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $produto = Produto::findOrFail($id);
+        
+        return view('produtos.edit', ['produto' => $produto]);
     }
 
     /**
@@ -120,7 +130,17 @@ class ProdutoController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $dados = $request->validate([
+           'nome' => 'required|string|min:4',
+           'preco' => 'required|numeric',
+           'descricao' => 'required|min:50'
+        ]);
+        
+        $this->validarImagem($request, $this->imagem);
+
+        Produto::findOrFail(($id))->update($dados);
+
+        return redirect('/dashboard')->with('msg', 'Produto atualizado com sucesso');
     }
 
     /**
@@ -142,7 +162,15 @@ class ProdutoController extends Controller
         return view('produtos.dashboard', ['produtos' => $produtos, 'total_de_produtos' =>$total_de_produtos]);
     }
 
-    public function validarImagem(UserStoreRequest $request, $imagem) : bool | string
+    /**
+     * Função que tem como função validar imagem antes de entrar no banco
+     * 
+     *
+     * @param UserStoreRequest $request
+     * @param [type] $imagem
+     * @return void
+     */
+    public function validarImagem($request, $imagem) : bool | string
     {
         if ($request->hasFile($imagem) && $request->file($imagem)->isValid()) {
             $file = $request->file($imagem);

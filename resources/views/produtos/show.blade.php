@@ -11,6 +11,7 @@
         
     </div>
 
+
     
     <div id="descricao">
         <h2> {{ ucwords($produto->nome) }} </h2>

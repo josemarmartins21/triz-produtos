@@ -32,7 +32,7 @@
                     <td> <a href="/produtos/{{ $produto->id }}">{{ ucwords($produto->nome) }}</a> </td>
                     <td> {{ $produto->preco }} </td>
                     <td class="acoes">
-                        <a href="#" class="atualizar"><i class="fa-solid fa-pen-to-square"></i></a> 
+                        <a href="/produtos/{{ $produto->id }}/edit" class="atualizar"><i class="fa-solid fa-pen-to-square"></i></a> 
 
                     <form action="/produtos/{{ $produto->id }}" method="POST">
                         @method("Delete")
