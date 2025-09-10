@@ -12,4 +12,6 @@ Route::post('/produtos', [ProdutoController::class, 'store'])->name('produtos');
 Route::get('/produtos/{id}', [ProdutoController::class, 'show'])->name('produtos.show');
 
 Route::get('/dashboard', [ProdutoController::class, 'dashboard'])->name('produtos.dashboard');
+
+Route::delete("/produtos/{id}", [ProdutoController::class, 'destroy'])->name('photos.destroy');
  

@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title')</title>
     <link rel="stylesheet" href="/css/style.css">
+    <script src="https://kit.fontawesome.com/8e770ce0b4.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>

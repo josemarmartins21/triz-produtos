@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exceptions\InvalidOrderException;
 use App\Http\Requests\ProdutoStoreRequest;
 use App\Http\Requests\UserStoreRequest;
 use App\Models\Produto;
@@ -16,7 +17,18 @@ class ProdutoController extends Controller
     public function index()
     {
         $busca = request('search');
+        /* Produto::query()->where('id',">", 15)->chunkById(2, function($produtos) {
+            $produtos->each(function($produto) {
+                $produto->preco = 3500;
+                $produto->save();
+                echo "<br>";
+            });
 
+            echo "<br> <br>";
+        }); */
+        /* throw new InvalidOrderException();
+        
+        dd(); */
         if ($busca) {
             $produtos = Produto::where([
                 ['nome', 'like', "%" . $busca . "%"]
@@ -116,12 +128,18 @@ class ProdutoController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Produto::findOrFail($id)->delete();
+
+        return redirect('/dashboard')->with('msg', "Produto eliminado com sucesso");
     }
 
     public function dashboard()
     {
-        return view('produtos.dashboard');
+        $produtos = Produto::all();
+
+        $total_de_produtos = Produto::all()->count();
+
+        return view('produtos.dashboard', ['produtos' => $produtos, 'total_de_produtos' =>$total_de_produtos]);
     }
 
     public function validarImagem(UserStoreRequest $request, $imagem) : bool | string
