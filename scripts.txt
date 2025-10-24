@@ -1,0 +1,151 @@
+/* $resultados = DB::table("socios")->get(['telefone', 'nome'])->all(); */ 
+        // $resultados = DB::table("socios")->find(2);
+
+        /*   foreach ($resultados as $socio) {
+            echo "<p> $socio->telefone </p>";
+        } */
+
+        /* DB::table('socios')
+        ->orderBy('id')
+        ->chunk(100, 
+        function(Collection $socios) 
+        {
+            foreach ($socios as $socio) {
+                echo "<p>O sócio $socio->nome tem o telefone $socio->telefone.</p>";
+            }
+        
+        });   */
+
+        /* echo DB::table('socios')->count(); */
+
+        // insert 
+
+       /*  DB::table('socios')->insert([
+            'nome' => 'Natan Ferreira',
+            'Telefone' => 555,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]); */
+
+        /* DB::table('socios')->where('id', 3)->update([
+            'nome' => 'Josimar Alterado',
+            'updated_at' => \Carbon\Carbon::now()
+        ]); */
+
+      /*   DB::table('socios')->where('nome', 'josimar alterado')->delete();
+
+        echo DB::table('socios')->sum('telefone'); */
+        
+        
+        
+        
+        
+        /* $socios = Socio::all(); */
+        
+    /*     $socios = Socio::orderBy('nome', 'desc')->get(); */
+
+        /* $socios = Socio::take(2)->get(); */
+
+        
+        /*  foreach ($socios as $socio) {
+            echo "$socio->nome</br>". PHP_EOL; 
+        } */
+       /*  echo "<pre>";
+        
+        print_r($socios->nome); */
+
+        /* foreach ($socios as $socio) {
+            echo "$socio->nome || $socio->telefone". PHP_EOL; 
+            
+        } */
+       
+       /* $socios = Socio::chunk(3, function ($socios) {
+            foreach ($socios as $socio) {
+                echo "Bom dia socio " . $socio->nome . "<br>";
+            }
+       });
+
+       $socios = Socio::cursor()->filter(function($socios) {
+        return $socios->id < 3;
+       });
+
+       foreach ($socios as $socio) {
+            echo "Socio $socio->id | " . $socio->nome; 
+       }
+
+       $socio = Socio::find(5);
+
+       echo $socio->nome;
+
+       $socio = Socio::firstWhere('id', 2);
+       echo $socio->nome;
+       $socio = Socio::where('id', 1)->first();
+       echo " " . $socio->nome;
+ */
+
+
+      /*  $socios = Socio::where('created_at', 'like', '%20%')->limit(2)->get();
+       echo "<pre>";
+       echo json_encode($socios); */
+
+      // echo $socios . PHP_EOL . "</br>";
+       // var_dump($socios);
+       
+
+
+
+
+        // return view('home');
+
+
+
+           if ($request->isMethod('post')) {
+            echo 'ok';
+        } else {
+            echo 'not ok';
+        }~
+
+        // campos preenchidos
+        $request->input()
+
+
+
+
+         // Colocar dados
+       // $request->session()->put('usuario', 'Carlos');
+        // apresentar dados
+       /*  $request->session()->put([
+            'usuario' => 'Ana',
+            'Role' => 'adm',
+        ]); */
+        // alterar dados
+        // $request->session()->put('usuario', 'João');
+         /*  $request->session()->put([
+            'usuario' => 'Ana',
+            'Role' => 'guest',
+          ]); */
+        // eliminar dados
+        // Verificar se variavel existe
+        /* if ($request->session()->exists('permissão')) {
+            echo "ok";
+        } else {
+            echo "not ok";
+        } */
+
+        /* if (!$request->session()->has('permissao')) {
+            echo "não existe!";
+        } else {
+            echo "existe";
+        } */
+
+          /*   $request->session()->forget('usuario'); */
+     /*    session()->put([
+            'usuario' => 'Carlos',
+            'role' =>'adm'
+        ]); */
+
+        
+        /* $usuario = session()->get('usuario');
+        echo $usuario; */
+
+        //echo $request->session()->get('role', 'não disponivel');

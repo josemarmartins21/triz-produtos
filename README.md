@@ -1,2 +1,1 @@
-# triz-produtos
-Site de produtos da Triz
+# Curso básico de laravel
